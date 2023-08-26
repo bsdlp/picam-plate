@@ -36,13 +36,13 @@ difference()
     // y distance between hole and cable connector
     cable_connector_offset = cam_pcb_y_length - (cam_hole_y_dist + (2 * 2)) - cable_connector_length;
     cable_connector_buffer = 1;
-    cable_cutout_length = 10;
+    cable_cutout_length = 15;
     cable_cutout_width = cam_pcb_x_length;
 
     translate([
         (85 / 2) - (cable_cutout_width / 2),
         (56 / 2) -
-            ((cam_hole_y_dist + (2 * 2)) / 2 + cable_connector_offset + cable_cutout_length + cable_connector_buffer),
+            ((cam_hole_y_dist + (2 * 2)) / 2 + cable_connector_offset + cable_cutout_length - cable_connector_buffer),
         -1
     ]) cuboid([ cable_cutout_width, cable_cutout_length, 5 ], fillet = 3, edges = EDGES_Z_ALL, center = false);
 
